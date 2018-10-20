@@ -1,21 +1,21 @@
 import {
   actions,
-  addTodoAction,
-  deleteTodoAction,
-  getTodosAction,
+  IAddTodoAction,
+  IDeleteTodoAction,
+  IGetTodosAction,
   ITodo
 } from './types';
 
-export const getTodos = (): getTodosAction => ({
+export const getTodos = (): IGetTodosAction => ({
   type: actions.GET_TODOS
 });
 
-export const addTodo = (data: ITodo): addTodoAction => ({
-  type: actions.ADD_TODO,
-  data
+export const addTodo = (data: ITodo): IAddTodoAction => ({
+  data,
+  type: actions.ADD_TODO
 });
 
-export const deleteTodo = (id: string): deleteTodoAction => ({
-  type: actions.DELETE_TODO,
-  id
+export const deleteTodo = (id: string): IDeleteTodoAction => ({
+  id,
+  type: actions.DELETE_TODO
 });

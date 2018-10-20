@@ -4,19 +4,19 @@ export enum actions {
   GET_TODOS = 'GetTodos'
 }
 
-export type TodoActions = addTodoAction | deleteTodoAction | getTodosAction;
+export type TodoActions = IAddTodoAction | IDeleteTodoAction | IGetTodosAction;
 
-export interface addTodoAction {
+export interface IAddTodoAction {
   type: actions.ADD_TODO;
   data: ITodo;
 }
 
-export interface deleteTodoAction {
+export interface IDeleteTodoAction {
   type: actions.DELETE_TODO;
   id: string;
 }
 
-export interface getTodosAction {
+export interface IGetTodosAction {
   type: actions.GET_TODOS;
 }
 
@@ -27,9 +27,9 @@ export interface ITodo {
 }
 
 export interface ITodoList {
-  todos: Array<ITodo>;
+  todos: ITodo[];
 }
 
-export interface State {
+export interface IState {
   todos: ITodoList;
 }

@@ -1,8 +1,8 @@
-import { actions, State, TodoActions } from './types';
+import { actions, IState, TodoActions } from './types';
 
-const initialState: State = [] as any;
+const initialState: IState = [] as any;
 
-const reducer = (state: State = initialState, action: TodoActions) => {
+const reducer = (state: IState = initialState, action: TodoActions) => {
   switch (action.type) {
     case actions.GET_TODOS:
       return {

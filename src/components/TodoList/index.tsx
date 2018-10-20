@@ -1,26 +1,27 @@
 import * as React from 'react';
-import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { ITodoList, State } from '../../redux/types';
+import { Dispatch } from 'redux';
 import * as TodoActions from '../../redux/actions';
+import { IState, ITodoList } from '../../redux/types';
 
 // import Todo from '../Todo';
 
-export interface TodoListMapProps {
+export interface ITodoListMapProps {
   todos: ITodoList;
 }
 
-export interface TodoListDispatchProps {
+export interface ITodoListDispatchProps {
   getTodos: () => void;
 }
 
-export interface TodoListProps
-  extends TodoListMapProps,
-    TodoListDispatchProps {}
+export interface ITodoListProps
+  extends ITodoListMapProps,
+    ITodoListDispatchProps {}
 
-class TodoList extends React.Component<TodoListProps> {
-  componentDidMount() {
+class TodoList extends React.Component<ITodoListProps> {
+  public componentDidMount() {
     this.props.getTodos();
+    alert('dispatched');
   }
   public render() {
     return (
@@ -31,11 +32,11 @@ class TodoList extends React.Component<TodoListProps> {
   }
 }
 
-const mapStateToProps = (state: State): TodoListMapProps => ({
+const mapStateToProps = (state: IState): ITodoListMapProps => ({
   todos: state.todos
 });
 
-const mapDispatchToProps = (dispatch: Dispatch): TodoListDispatchProps => ({
+const mapDispatchToProps = (dispatch: Dispatch): ITodoListDispatchProps => ({
   getTodos: () => dispatch(TodoActions.getTodos())
 });
 
