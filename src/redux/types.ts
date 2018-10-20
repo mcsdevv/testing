@@ -4,6 +4,8 @@ export enum actions {
   GET_TODOS = 'GetTodos'
 }
 
+export type TodoActions = addTodoAction | deleteTodoAction | getTodosAction;
+
 export interface addTodoAction {
   type: actions.ADD_TODO;
   data: ITodo;
@@ -23,5 +25,5 @@ export interface ITodo {
 }
 
 export interface ITodoList {
-  Todos: Array<ITodo>;
+  todos: Array<ITodo>;
 }
