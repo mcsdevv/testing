@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import * as TodoTypes from '../../redux/types';
+import { ITodoList, State } from '../../redux/types';
 import * as TodoActions from '../../redux/actions';
 
 // import Todo from '../Todo';
 
 export interface TodoListMapProps {
-  todos: TodoTypes.ITodoList;
+  todos: ITodoList;
 }
 
 export interface TodoListDispatchProps {
@@ -31,8 +31,8 @@ class TodoList extends React.Component<TodoListProps> {
   }
 }
 
-const mapStateToProps = ({ todos }): TodoListMapProps => ({
-  todos
+const mapStateToProps = (state: State): TodoListMapProps => ({
+  todos: state.todos
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): TodoListDispatchProps => ({

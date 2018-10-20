@@ -21,9 +21,15 @@ export interface getTodosAction {
 }
 
 export interface ITodo {
-  [key: string]: string;
+  id: string;
+  todo: string;
+  done: boolean;
 }
 
 export interface ITodoList {
   todos: Array<ITodo>;
+}
+
+export interface State {
+  todos: ITodoList;
 }
